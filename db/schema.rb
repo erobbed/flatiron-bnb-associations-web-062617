@@ -19,11 +19,12 @@ ActiveRecord::Schema.define(version: 20170714173439) do
 
   create_table "listings", force: :cascade do |t|
     t.string  "address"
+    t.string  "description"
     t.string  "listing_type"
     t.string  "title"
     t.float   "price"
-    t.integer "neighborhood"
-    t.integer "host"
+    t.integer "neighborhood_id"
+    t.integer "host_id"
   end
 
   create_table "neighborhoods", force: :cascade do |t|
@@ -32,17 +33,17 @@ ActiveRecord::Schema.define(version: 20170714173439) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.datetime    "checkin"
-    t.datetime    "checkout"
-    t.integer "listing"
-    t.integer "guest"
+    t.date    "checkin"
+    t.date    "checkout"
+    t.integer "listing_id"
+    t.integer "guest_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string  "description"
     t.integer "rating"
-    t.integer "guest"
-    t.integer "reservation"
+    t.integer "guest_id"
+    t.integer "reservation_id"
   end
 
   create_table "users", force: :cascade do |t|
