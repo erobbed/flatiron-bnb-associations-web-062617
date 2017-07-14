@@ -1,7 +1,4 @@
 class User < ActiveRecord::Base
-
-  # has_many :reservations, foreign_key: 'guest_id'
-
   #  as a host
   has_many :listings, foreign_key: 'host_id'
   has_many :reservations, through: :listings
@@ -14,8 +11,6 @@ class User < ActiveRecord::Base
   # def trips
   #   Reservation.where(guest_id: self.id)
   # end
-
-
 
   # def reviews
   #   self.reviews
